@@ -1,10 +1,13 @@
 package mr
 
-import "log"
-import "net"
-import "os"
-import "net/rpc"
-import "net/http"
+import (
+	"fmt"
+	"log"
+	"net"
+	"net/http"
+	"net/rpc"
+	"os"
+)
 
 
 type Coordinator struct {
@@ -61,8 +64,11 @@ func (c *Coordinator) Done() bool {
 //
 func MakeCoordinator(files []string, nReduce int) *Coordinator {
 	c := Coordinator{}
-
-	// Your code here.
+	fmt.Println("Launching coordinator...")
+	//print files
+	for _, file := range files {
+		fmt.Println(file)
+	}
 
 
 	c.server()
